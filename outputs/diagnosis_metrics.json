@@ -1,0 +1,52 @@
+{
+  "accuracy": 0.7261,
+  "balanced_accuracy": 0.6179,
+  "macro_f1": 0.5608,
+  "melanoma_recall": 0.486,
+  "ECE": 0.0174,
+  "temperature": 1.9193,
+  "per_class": {
+    "akiec": {
+      "precision": 0.4384,
+      "recall": 0.5079,
+      "f1": 0.4706,
+      "support": 63
+    },
+    "bcc": {
+      "precision": 0.4733,
+      "recall": 0.6139,
+      "f1": 0.5345,
+      "support": 101
+    },
+    "bkl": {
+      "precision": 0.4728,
+      "recall": 0.533,
+      "f1": 0.5011,
+      "support": 212
+    },
+    "df": {
+      "precision": 0.3438,
+      "recall": 0.4783,
+      "f1": 0.4,
+      "support": 23
+    },
+    "mel": {
+      "precision": 0.3782,
+      "recall": 0.486,
+      "f1": 0.4254,
+      "support": 214
+    },
+    "nv": {
+      "precision": 0.9228,
+      "recall": 0.8172,
+      "f1": 0.8668,
+      "support": 1302
+    },
+    "vasc": {
+      "precision": 0.6154,
+      "recall": 0.8889,
+      "f1": 0.7273,
+      "support": 27
+    }
+  }
+}
