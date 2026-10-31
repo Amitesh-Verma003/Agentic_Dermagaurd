@@ -1,0 +1,74 @@
+{
+ "ensemble": [
+  {
+   "path": "best_diagnosis_agent.pth",
+   "weight": 1.0,
+   "name": "efficientnet_b0@224",
+   "path_abs": "/Users/vyomvarshney2005/Desktop/health-training/best_diagnosis_agent.pth"
+  },
+  {
+   "path": "day2/artifacts/efficientnet_b0_256.pth",
+   "weight": 1.0,
+   "name": "efficientnet_b0@256",
+   "path_abs": "/Users/vyomvarshney2005/Desktop/health-training/day2/artifacts/efficientnet_b0_256.pth"
+  }
+ ],
+ "tta": 1,
+ "fusion": {
+  "w_ctx": 0.5,
+  "w_les": 0.5,
+  "bias": [
+   -0.3,
+   -1.7,
+   0.2,
+   -0.6,
+   -0.3,
+   0.0,
+   -1.5
+  ]
+ },
+ "lesion_pooling": true,
+ "safety_policy": {
+  "tau_conf": 0.45,
+  "tau_margin": 0.0,
+  "tau_mal": 0.25,
+  "tau_tta": 0.5,
+  "tau_ctx": 0.95,
+  "quality_uncertain_conf": 0.6,
+  "use_model_disagree": false,
+  "use_fusion_changed": true
+ },
+ "quality_thresholds": {
+  "blur": [
+   39.18334008977777,
+   26.778409661388885
+  ],
+  "dark": [
+   90.0,
+   60.0
+  ],
+  "bright": [
+   232.61307777777776,
+   242.4493405925926
+  ],
+  "glare": [
+   0.02,
+   0.06
+  ],
+  "obstruction": [
+   0.08,
+   0.15
+  ],
+  "vignette": [
+   0.4,
+   0.6
+  ]
+ },
+ "target_precision": 0.96,
+ "eval_metrics": {
+  "accuracy": 0.8501544799176107,
+  "macro_f1": 0.773942070781658,
+  "cv_accuracy": 0.833676622039135,
+  "cv_macro_f1": 0.7351109645827675
+ }
+}
