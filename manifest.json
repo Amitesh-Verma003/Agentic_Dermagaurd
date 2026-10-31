@@ -1,0 +1,181 @@
+{
+  "pack": "participant",
+  "source": "DataSet/{Cyber,Health} canonical split, seed 42",
+  "included_partitions": [
+    "training",
+    "eval"
+  ],
+  "excluded": [
+    "hidden inputs (released separately by the organizers)",
+    "hidden/private labels (organizer-only)"
+  ],
+  "tracks": {
+    "cyber": {
+      "format": "parquet",
+      "features": 78,
+      "columns": [
+        "record_id",
+        "Destination Port",
+        "Flow Duration",
+        "Total Fwd Packets",
+        "Total Backward Packets",
+        "Total Length of Fwd Packets",
+        "Total Length of Bwd Packets",
+        "Fwd Packet Length Max",
+        "Fwd Packet Length Min",
+        "Fwd Packet Length Mean",
+        "Fwd Packet Length Std",
+        "Bwd Packet Length Max",
+        "Bwd Packet Length Min",
+        "Bwd Packet Length Mean",
+        "Bwd Packet Length Std",
+        "Flow Bytes/s",
+        "Flow Packets/s",
+        "Flow IAT Mean",
+        "Flow IAT Std",
+        "Flow IAT Max",
+        "Flow IAT Min",
+        "Fwd IAT Total",
+        "Fwd IAT Mean",
+        "Fwd IAT Std",
+        "Fwd IAT Max",
+        "Fwd IAT Min",
+        "Bwd IAT Total",
+        "Bwd IAT Mean",
+        "Bwd IAT Std",
+        "Bwd IAT Max",
+        "Bwd IAT Min",
+        "Fwd PSH Flags",
+        "Bwd PSH Flags",
+        "Fwd URG Flags",
+        "Bwd URG Flags",
+        "Fwd Header Length",
+        "Bwd Header Length",
+        "Fwd Packets/s",
+        "Bwd Packets/s",
+        "Min Packet Length",
+        "Max Packet Length",
+        "Packet Length Mean",
+        "Packet Length Std",
+        "Packet Length Variance",
+        "FIN Flag Count",
+        "SYN Flag Count",
+        "RST Flag Count",
+        "PSH Flag Count",
+        "ACK Flag Count",
+        "URG Flag Count",
+        "CWE Flag Count",
+        "ECE Flag Count",
+        "Down/Up Ratio",
+        "Average Packet Size",
+        "Avg Fwd Segment Size",
+        "Avg Bwd Segment Size",
+        "Fwd Header Length_duplicated_0",
+        "Fwd Avg Bytes/Bulk",
+        "Fwd Avg Packets/Bulk",
+        "Fwd Avg Bulk Rate",
+        "Bwd Avg Bytes/Bulk",
+        "Bwd Avg Packets/Bulk",
+        "Bwd Avg Bulk Rate",
+        "Subflow Fwd Packets",
+        "Subflow Fwd Bytes",
+        "Subflow Bwd Packets",
+        "Subflow Bwd Bytes",
+        "Init_Win_bytes_forward",
+        "Init_Win_bytes_backward",
+        "act_data_pkt_fwd",
+        "min_seg_size_forward",
+        "Active Mean",
+        "Active Std",
+        "Active Max",
+        "Active Min",
+        "Idle Mean",
+        "Idle Std",
+        "Idle Max",
+        "Idle Min",
+        "label"
+      ],
+      "partitions": {
+        "training": {
+          "rows": 456737,
+          "classes": {
+            "BENIGN": 240000,
+            "BRUTE_FORCE": 5537,
+            "DOS": 96000,
+            "DDOS": 57600,
+            "PORT_SCAN": 57600
+          },
+          "path": "Cyber/training/flows.parquet",
+          "bytes": 59567398,
+          "sha256": "bf2ebe1a70d4edbbc6493baa01a8e881903b6466d32dfd2b3b0376557434a769"
+        },
+        "eval": {
+          "rows": 114185,
+          "classes": {
+            "BENIGN": 60001,
+            "BRUTE_FORCE": 1384,
+            "DOS": 24000,
+            "DDOS": 14400,
+            "PORT_SCAN": 14400
+          },
+          "path": "Cyber/eval/flows.parquet",
+          "bytes": 15411904,
+          "sha256": "44d518f70972edcf7a948746d517c494fce581198cf1c63aa465e770bb2668eb"
+        }
+      }
+    },
+    "health": {
+      "format": "metadata.csv + images/",
+      "columns": [
+        "image_id",
+        "lesion_id",
+        "dx",
+        "age",
+        "sex",
+        "localization"
+      ],
+      "partitions": {
+        "training": {
+          "images": 7762,
+          "classes": {
+            "nv": 5212,
+            "mel": 856,
+            "bkl": 848,
+            "bcc": 400,
+            "akiec": 249,
+            "vasc": 109,
+            "df": 88
+          },
+          "path": "Health/training",
+          "bytes": 2152291942,
+          "metadata_sha256": "5d5bdff86628882203b8e250d9c5e4aa13839456a9da731aaf52724b1cf04355"
+        },
+        "eval": {
+          "images": 1942,
+          "classes": {
+            "nv": 1302,
+            "mel": 214,
+            "bkl": 212,
+            "bcc": 101,
+            "akiec": 63,
+            "vasc": 27,
+            "df": 23
+          },
+          "path": "Health/eval",
+          "bytes": 533566045,
+          "metadata_sha256": "1a7ab2121e3a36d6fa1ee1298e9a313607dde9509f680958a83a59a34f9cc12b"
+        }
+      }
+    }
+  },
+  "checks": {
+    "hidden_or_private_files_present": 0,
+    "cyber_rows_total": 570922,
+    "health_images_total": 9704,
+    "health_image_files": {
+      "training": 7762,
+      "eval": 1942
+    },
+    "health_image_files_match_metadata": true
+  }
+}

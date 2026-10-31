@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS artifacts
+.DS_Store
+
+# Dataset (2GB images and raw data)
+Health/
+
+# Model checkpoints and weights (too large for GitHub)
+*.pth
+*.pt
+*.bin
+*.safetensors
+day2/artifacts/*.pth
+day2/artifacts/cache/
+
+# Execution logs (optional, exclude if volatile)
+*.log
+day2/train_log.txt
+day2/calib_log.txt

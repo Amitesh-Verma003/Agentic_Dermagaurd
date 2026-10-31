@@ -1,0 +1,50 @@
+{
+  "dataset_path": "/Users/vyomvarshney2005/Desktop/health-eval (1)/Health/eval",
+  "total_images": 1942,
+  "correctly_predicted": 1532,
+  "diagnosis_accuracy": 0.7889,
+  "quality_re_image_count": 104,
+  "quality_pass_count": 1838,
+  "triage_distribution": {
+    "AUTO_TRIAGE": 1511,
+    "REFER": 327,
+    "RE_IMAGE": 104
+  },
+  "per_class_performance": {
+    "akiec": {
+      "correct": 37,
+      "total": 63,
+      "accuracy": 0.5873
+    },
+    "bcc": {
+      "correct": 79,
+      "total": 101,
+      "accuracy": 0.7822
+    },
+    "bkl": {
+      "correct": 122,
+      "total": 212,
+      "accuracy": 0.5755
+    },
+    "df": {
+      "correct": 14,
+      "total": 23,
+      "accuracy": 0.6087
+    },
+    "mel": {
+      "correct": 124,
+      "total": 214,
+      "accuracy": 0.5794
+    },
+    "nv": {
+      "correct": 1130,
+      "total": 1302,
+      "accuracy": 0.8679
+    },
+    "vasc": {
+      "correct": 26,
+      "total": 27,
+      "accuracy": 0.963
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "experiment": "Agentic DermaGuard \u2013 Day 1 Prototype",
+  "model": "efficientnet_b0 (timm, pretrained)",
+  "device": "mps",
+  "validation_size": 1553,
+  "overall_metrics": {
+    "accuracy": 0.8448,
+    "macro_f1": 0.7783,
+    "balanced_accuracy": 0.8157
+  },
+  "per_class_metrics": {
+    "akiec": {
+      "precision": 0.6207,
+      "recall": 0.72,
+      "f1-score": 0.6667,
+      "support": 50
+    },
+    "bcc": {
+      "precision": 0.7579,
+      "recall": 0.9,
+      "f1-score": 0.8229,
+      "support": 80
+    },
+    "bkl": {
+      "precision": 0.7232,
+      "recall": 0.7529,
+      "f1-score": 0.7378,
+      "support": 170
+    },
+    "df": {
+      "precision": 0.6818,
+      "recall": 0.8824,
+      "f1-score": 0.7692,
+      "support": 17
+    },
+    "mel": {
+      "precision": 0.5572,
+      "recall": 0.655,
+      "f1-score": 0.6022,
+      "support": 171
+    },
+    "nv": {
+      "precision": 0.9489,
+      "recall": 0.8907,
+      "f1-score": 0.9189,
+      "support": 1043
+    },
+    "vasc": {
+      "precision": 0.9524,
+      "recall": 0.9091,
+      "f1-score": 0.9302,
+      "support": 22
+    }
+  },
+  "triage_distribution": {
+    "AUTO_TRIAGE": 1206,
+    "REFER": 252,
+    "RE_IMAGE": 95
+  },
+  "quality_status_distribution": {
+    "PASS": 1458,
+    "RE_IMAGE_RECOMMENDED": 95
+  },
+  "quality_agent_time_sec": 15.8
+}
