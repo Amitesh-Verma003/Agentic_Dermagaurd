@@ -127,7 +127,7 @@ def _tta_views(x: torch.Tensor, level: int):
 
 @torch.no_grad()
 def predict_probs(model, df: pd.DataFrame, img_dir: str, img_size: int, device,
-                  tta: int = 8, batch_size: int = 32, num_workers: int = 2,
+                  tta: int = 8, batch_size: int = 32, num_workers: int = 0,
                   return_views: bool = False):
     """Returns softmax probabilities (N, C) averaged over TTA views.
     If return_views, also returns per-view probs (V, N, C) for stability checks."""
