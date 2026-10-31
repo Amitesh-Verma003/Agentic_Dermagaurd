@@ -49,7 +49,7 @@ def parse():
                    help="class weight = n_c^-power (0 = none, 1 = full inverse freq)")
     p.add_argument("--ls", type=float, default=0.1, help="label smoothing")
     p.add_argument("--ema", type=float, default=0.999)
-    p.add_argument("--workers", type=int, default=4)
+    p.add_argument("--workers", type=int, default=2)
     p.add_argument("--train-dir", default=C.TRAIN_DIR)
     p.add_argument("--eval-dir", default=C.EVAL_DIR)
     p.add_argument("--out", default=None, help="checkpoint path (default artifacts/<model>_<img>.pth)")
@@ -107,7 +107,7 @@ def main():
     ev_ds = ImageTableDataset(ev_df, image_dir_of(a.eval_dir), eval_tf(a.img))
     kw = dict(num_workers=a.workers, pin_memory=False, persistent_workers=a.workers > 0)
     tr_dl = DataLoader(tr_ds, batch_size=a.bs, shuffle=True, drop_last=True, **kw)
-    ev_dl = DataLoader(ev_ds, batch_size=a.bs * 2, shuffle=False, **kw)
+    ev_dl = DataLoader(ev_ds, batch_size=a.bs, shuffle=False, num_workers=0, pin_memory=False)
 
     counts = np.array([(tr_df.dx == c).sum() for c in C.CLASS_NAMES], dtype=float)
     w = np.maximum(counts, 1) ** (-a.cw_power)
@@ -165,6 +165,8 @@ def main():
                                 "model_state_dict": {k: v.cpu() for k, v in m.state_dict().items()}},
                                out)
                     print(f"    ✅ saved {tag} weights → {out}  (acc={ac:.4f}, f1={f:.4f})")
+            if device.type == "mps":
+                torch.mps.empty_cache()
     print(f"[train] done. best (acc+f1)/2 = {best:.4f}. History → {hist_path}")
 
 
